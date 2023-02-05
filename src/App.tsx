@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { MoviesPage } from './views/Movies/MoviesPage/MoviesPage';
 import { MoviesDetailPage } from './views/Movies/MoviesDetailPage/MoviesDetailPage';
-import { NotFoundRoute } from './components/routing/NotFoundRoute/NotFoundRoute';
+import { NotFoundRoute } from './components/routing';
 
 
 function App() {
