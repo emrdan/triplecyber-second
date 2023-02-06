@@ -4,6 +4,7 @@ import styles from './MoviesDetailPage.module.css';
 import { FavoriteIndicator } from '../../../components/core/Movies/MovieListItem/MovieListItem';
 import { useQuery } from 'react-query';
 import { getMovieById } from '../../../services/api';
+import { isFavoriteMovie, addMovieToFavorites } from '../../../services/localstorage';
 
 
 const MovieHero = ({ backgroundUrl = '' }: { backgroundUrl: string}) => {
@@ -15,13 +16,16 @@ const MovieHero = ({ backgroundUrl = '' }: { backgroundUrl: string}) => {
 
 export function MoviesDetailPage(): JSX.Element {
   const { id } = useParams();
-  const [isFavorite, setIsFavorite] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(isFavoriteMovie(id as string));
   const { isLoading, error, data } = useQuery(
     ['movieById', id], 
     () => getMovieById(id)
   );
 
-  console.log(data);
+  const markAsFavorite = (id: string) => {
+    addMovieToFavorites(id);
+    setIsFavorite(true);
+  }
 
   return (
     <div className={styles['movies-detail-page']}>
@@ -44,7 +48,13 @@ export function MoviesDetailPage(): JSX.Element {
                 {data['overview']}
               </p>
             </div>
-            <button className={styles['mark-favorite-button']}>Mark as Favorite!</button>
+            {!isFavorite &&
+              <button className={styles['mark-favorite-button']}
+                onClick={() => markAsFavorite(id as string)}
+              >
+                Mark as Favorite!
+              </button>
+            }
           </>
         ) : null}
     </div>

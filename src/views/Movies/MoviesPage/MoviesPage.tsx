@@ -5,6 +5,7 @@ import { NavBar } from '../../../components/navigation';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getTopRatedMovies } from '../../../services/api';
+import { isFavoriteMovie } from '../../../services/localstorage';
 import styles from './MoviesPage.module.css';
 
 interface ApplicantProps {
@@ -84,11 +85,30 @@ export function MoviesPage(): JSX.Element {
         ) : data ? (
           <>
             <ListContainer>
-              {data.results.map((movie: any) => (
-                <NavLink key={movie['id']} to={`/movies/${movie['id']}`}>
-                  <MovieListItem title={movie['title']} voteAverage={movie['vote_average']} />
-                </NavLink>
-              ))}
+              {filter === 'top-rated' && (
+                data.results.map((movie: any) => (
+                  <NavLink key={movie['id']} to={`/movies/${movie['id']}`}>
+                    <MovieListItem 
+                      title={movie['title']} 
+                      voteAverage={movie['vote_average']}
+                      isFavorite={isFavoriteMovie(movie['id'])}
+                    />
+                  </NavLink>
+                ))
+              )}
+              {filter === 'favorites' && (
+                data.results
+                .filter((movie: any) => isFavoriteMovie(movie['id'] as string))
+                .map((movie: any) => (
+                  <NavLink key={movie['id']} to={`/movies/${movie['id']}`}>
+                    <MovieListItem 
+                      title={movie['title']} 
+                      voteAverage={movie['vote_average']}
+                      isFavorite={isFavoriteMovie(movie['id'])}
+                    />
+                  </NavLink>
+                ))
+              )}
 
             </ListContainer>
           </>
