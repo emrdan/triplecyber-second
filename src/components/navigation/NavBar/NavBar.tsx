@@ -1,7 +1,15 @@
 import React from 'react';
+import styles from './NavBar.module.css';
 
-export const NavBar: React.FC = () => {
+interface NavBarProps {
+  children?: React.ReactNode;
+};
+
+
+export function NavBar({ children }: NavBarProps ): JSX.Element {
   return (
-    <div></div>
+    <div className={styles['navbar']}>
+      {children}
+    </div>
   )
 }

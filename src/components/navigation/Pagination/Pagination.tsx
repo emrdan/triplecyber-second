@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Pagination: React.FC = () => {
+export function Pagination(): JSX.Element {
   return (
     <div></div>
   )

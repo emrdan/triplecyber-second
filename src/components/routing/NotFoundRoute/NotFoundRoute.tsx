@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NotFoundRoute: React.FC = () => {
+export function NotFoundRoute(): JSX.Element {
   return (
     <div>Route not found!</div>
   )

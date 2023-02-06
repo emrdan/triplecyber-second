@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MoviesDetailPage: React.FC = () => {
+export function MoviesDetailPage(): JSX.Element {
   return (
     <div></div>
   )

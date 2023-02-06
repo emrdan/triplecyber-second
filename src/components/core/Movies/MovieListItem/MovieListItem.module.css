@@ -1,0 +1,40 @@
+.movie-list-item {
+  height: 110px;
+  background-color: rgb(249, 247, 247);;
+  border: 2px dotted grey;
+  border-radius: 5px;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.title-circle {
+  border-radius: 50%;
+  background: rgb(229, 229, 229);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.movie-metadata {
+  margin-left: auto;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-metadata p:nth-child(2) {
+  margin: 0;
+  align-self: flex-end;
+}
+
+.favorite-indicator > svg {
+  height: 22px;
+  width: 22px;
+
+}

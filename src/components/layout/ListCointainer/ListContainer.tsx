@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import styles from './ListContainer.module.css';
 
-export const ListContainer: React.FC = () => {
+interface ListContainerProps {
+  children?: React.ReactNode;
+};
+
+export function ListContainer ({ children }: ListContainerProps): JSX.Element {
   return (
-    <div></div>
+    <div className={styles['list-container']}>
+      { children }
+    </div>
   )
 }
