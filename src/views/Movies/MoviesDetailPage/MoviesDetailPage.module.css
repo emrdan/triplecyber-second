@@ -3,8 +3,6 @@
 }
 
 .movie-hero {
-  background-image: url("https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg");
-  background-image: url("https://image.tmdb.org/t/p/w500/vI3aUGTuRRdM7J78KIdW98LdxE5.jpg");
   height: 500px;
   margin: 0 auto;
   background-repeat: no-repeat;
@@ -21,12 +19,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%
+  width: 100%;
+  flex-direction: column;
 }
 
 .movie-details > div:nth-child(2) {
-  position: relative;
-  left: 30%;
+  align-self: flex-end;
+    position: relative;
+    bottom: 50px;
+    right: 20px;
 }
 
 .mark-favorite-button {
@@ -51,5 +52,11 @@
   .movie-details {
     width: 500px;
     margin: 0 auto;
+  }
+
+  .movies-detail-page > .movie-overview {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
   }
 }

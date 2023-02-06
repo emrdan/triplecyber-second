@@ -3,7 +3,8 @@ import { ListContainer } from '../../../components/layout';
 import { MovieListItem } from '../../../components/core/Movies';
 import { NavBar } from '../../../components/navigation';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-
+import { useQuery } from 'react-query';
+import { getTopRatedMovies } from '../../../services/api';
 import styles from './MoviesPage.module.css';
 
 interface ApplicantProps {
@@ -30,6 +31,7 @@ export function MoviesPage(): JSX.Element {
   const searchParams = useSearchParams();
   const navigate = useNavigate();
   const [filter, setFilter] = useState(searchParams.get('filter') || 'top-rated');
+  const { isLoading, error, data } = useQuery('topRatedMovies', getTopRatedMovies);
 
   useEffect(() => {
     const qs = new URLSearchParams();
@@ -75,26 +77,22 @@ export function MoviesPage(): JSX.Element {
             {loadText}
           </NavLink>
         </>
-      <ListContainer>
-        <NavLink to="/movies/209">
-          <MovieListItem title="The Matrix" voteAverage={8} />
-        </NavLink>
-        <NavLink to="/movies/209">
-          <MovieListItem title="The Godfather Part II" voteAverage={2} />
-        </NavLink>
-        <NavLink to="/movies/209">
-          <MovieListItem title="Parasite" voteAverage={9.9} isFavorite={true}/>
-        </NavLink>
-        <NavLink to="/movies/209">
-          <MovieListItem title="The Godfather Part II" voteAverage={2} />
-        </NavLink>
-        <NavLink to="/movies/209">
-          <MovieListItem title="The Godfather Part II" voteAverage={2} />
-        </NavLink>
-        <NavLink to="/movies/209">
-          <MovieListItem title="The Godfather Part II" voteAverage={2} />
-        </NavLink>
-      </ListContainer>
+        {error? (
+          <>Sorry! There was an error!</>
+        ) : isLoading ? (
+          <>Loading...</>
+        ) : data ? (
+          <>
+            <ListContainer>
+              {data.results.map((movie: any) => (
+                <NavLink key={movie['id']} to={`/movies/${movie['id']}`}>
+                  <MovieListItem title={movie['title']} voteAverage={movie['vote_average']} />
+                </NavLink>
+              ))}
+
+            </ListContainer>
+          </>
+        ) : null}
     </div>
   )
 }
