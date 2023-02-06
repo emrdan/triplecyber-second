@@ -1,9 +1,7 @@
 # Triple-Cyber Second
 
-TODO:
-
-- `Detail Page`
-- `API Service`
-- `Local Storage Service`
-- `Integrate both the API and Local Storage services`
+- Git clone the repo and cd into it
+- Run `npm install` within the directory
+- Run `npm start`
+- Navigate to `localhost: 3000`
 
