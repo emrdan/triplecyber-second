@@ -3,8 +3,6 @@ import styles from './MovieListItem.module.css';
 import { ReactComponent as StarOutlineIcon } from '../../../../assets/icons/star/outline.svg';
 import { ReactComponent as StarSolidIcon } from '../../../../assets/icons/star/solid.svg';
 
-
-
 interface MovieListItemProps {
   title: string,
   voteAverage: number,
@@ -36,7 +34,7 @@ const MovieMetadata = ({ children }: { children: React.ReactNode }): JSX.Element
   )
 }
 
-const FavoriteIndicator = ({ on = false }): JSX.Element => {
+export const FavoriteIndicator = ({ on = false }): JSX.Element => {
   return (
     <div className={styles['favorite-indicator']}>
       { on 

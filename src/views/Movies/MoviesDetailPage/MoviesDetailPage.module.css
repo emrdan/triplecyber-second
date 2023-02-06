@@ -1,0 +1,55 @@
+.movies-detail-page {
+  margin-bottom: 40px;
+}
+
+.movie-hero {
+  background-image: url("https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg");
+  background-image: url("https://image.tmdb.org/t/p/w500/vI3aUGTuRRdM7J78KIdW98LdxE5.jpg");
+  height: 500px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.movies-detail-page > .movie-overview {
+  margin: 0 40px;
+  line-height: 1.4em;
+  text-align: left;
+}
+
+.movie-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%
+}
+
+.movie-details > div:nth-child(2) {
+  position: relative;
+  left: 30%;
+}
+
+.mark-favorite-button {
+  color: #0098ff;
+  text-decoration: underline;
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (min-width: 501px) {
+  .movie-hero {
+    margin-top: 40px;
+    border-radius: 8px;
+    border: 6px solid black;
+    width: 500px;
+  }
+
+  .movie-details {
+    width: 500px;
+    margin: 0 auto;
+  }
+}

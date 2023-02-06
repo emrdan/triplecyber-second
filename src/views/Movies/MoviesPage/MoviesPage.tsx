@@ -4,7 +4,6 @@ import { MovieListItem } from '../../../components/core/Movies';
 import { NavBar } from '../../../components/navigation';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
-
 import styles from './MoviesPage.module.css';
 
 interface ApplicantProps {
@@ -85,6 +84,15 @@ export function MoviesPage(): JSX.Element {
         </NavLink>
         <NavLink to="/movies/209">
           <MovieListItem title="Parasite" voteAverage={9.9} isFavorite={true}/>
+        </NavLink>
+        <NavLink to="/movies/209">
+          <MovieListItem title="The Godfather Part II" voteAverage={2} />
+        </NavLink>
+        <NavLink to="/movies/209">
+          <MovieListItem title="The Godfather Part II" voteAverage={2} />
+        </NavLink>
+        <NavLink to="/movies/209">
+          <MovieListItem title="The Godfather Part II" voteAverage={2} />
         </NavLink>
       </ListContainer>
     </div>
