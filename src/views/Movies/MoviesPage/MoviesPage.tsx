@@ -81,7 +81,7 @@ export function MoviesPage(): JSX.Element {
         {error? (
           <>Sorry! There was an error!</>
         ) : isLoading ? (
-          <>Loading...</>
+          <>Loading...</> /* Aqui irian los indicadores animados como circulos o skeletons*/
         ) : data ? (
           <>
             <ListContainer>
