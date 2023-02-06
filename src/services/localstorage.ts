@@ -4,10 +4,6 @@ export const addMovieToFavorites = (id: string) => {
   }
 }
 
-export const getFavoriteMovie = (id: string) => {
-  return localStorage.getItem(id);
-}
-
 export const isFavoriteMovie = (id: string) => {
   return localStorage.getItem(id) != null;
 }
