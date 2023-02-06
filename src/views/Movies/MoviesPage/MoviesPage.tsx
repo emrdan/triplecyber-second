@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ListContainer } from '../../../components/layout';
 import { MovieListItem } from '../../../components/core/Movies';
-import { Pagination } from '../../../components/navigation';
 import { NavBar } from '../../../components/navigation';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
@@ -88,7 +87,6 @@ export function MoviesPage(): JSX.Element {
           <MovieListItem title="Parasite" voteAverage={9.9} isFavorite={true}/>
         </NavLink>
       </ListContainer>
-      <Pagination />
     </div>
   )
 }
